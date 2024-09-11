@@ -1,0 +1,26 @@
+---
+title: "Homework3"
+format: html
+editor: visual
+---
+#Loading Data
+
+```{r}
+load("hw2_list.rda")
+
+head(bp_list)
+```
+
+
+## Task1: Control Flow Practice 
+
+```{r}
+postt<-bp_list$treatment
+status<-if(postt$post_bp<=120){"optimal"
+        }
+    else if (postt$post_bp>130){"high"
+      }
+    else if (postt$post_bp>120 & postt$post_bp <=130) 
+      {"borderline"}
+```
+
