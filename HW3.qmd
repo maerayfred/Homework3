@@ -42,5 +42,53 @@ for(i in 1:10){
   else {placebo$status[i]="borderline"}
 }
 
+
 ```
+
+## Task 2: Function Writing
+
+```{r}
+library(matrixStats)
+
+#Creating Function
+
+fun<-function(vec, stat="mean"){
+ 
+ 
+  if (stat=="mean") { 
+  return( list(Mean= colMeans(select_if(vec,is.numeric))))}
+  else if (stat=="std"){
+  return( list(Std= colSds(as.matrix(select_if(vec,is.numeric)))))}
+  else if (stat=="min"){
+ return( list(Minimum= colMins(as.matrix(select_if(vec,is.numeric)))))}
+  else if (stat=="max"){
+  return( list(Maximum=colMaxs(as.matrix(select_if(vec,is.numeric)))))}
+  else if (stat=="var")
+    {return(list(Variance=colVars(as.matrix(select_if(vec,is.numeric))))) }
+}
+  
+#Finding Means Using Function
+fun(vec=treat)
+fun(vec=placebo)
+
+#Finding Standard Deviations Using Function
+fun(vec=treat,stat="std")
+fun(vec=placebo,stat="std")
+
+#Finding the Minimum Using Funtion
+fun(vec=treat,stat="min")
+fun(vec=placebo,stat="min")
+
+#Finding the Maximum Using Funtion
+fun(vec=treat,stat="max")
+fun(vec=placebo,stat="max")
+
+#Finding the Variance Using Funtion
+fun(vec=treat,stat="var")
+fun(vec=placebo,stat="var")
+
+```
+
+
+
 
