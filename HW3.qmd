@@ -15,12 +15,32 @@ head(bp_list)
 ## Task1: Control Flow Practice 
 
 ```{r}
-postt<-bp_list$treatment
-status<-if(postt$post_bp<=120){"optimal"
-        }
-    else if (postt$post_bp>130){"high"
-      }
-    else if (postt$post_bp>120 & postt$post_bp <=130) 
-      {"borderline"}
+#Creating new data frames and columns
+treat<-bp_list$treatment
+placebo<-bp_list$placebo
+
+treat$status<-character(20)
+
+
+for(i in 1:20){
+  if(treat$post_bp[i] >130)
+  {treat$status[i]= "high"}
+  else if (treat$post_bp[i]<=120)
+  {treat$status[i]="optimal" }
+  else {treat$status[i]="borderline"}
+}
+
+
+placebo$status<-character(10)
+
+
+for(i in 1:10){
+  if(placebo$post_bp[i] >130)
+  {placebo$status[i]= "high"}
+  else if (placebo$post_bp[i]<=120)
+  {placebo$status[i]="optimal" }
+  else {placebo$status[i]="borderline"}
+}
+
 ```
 
